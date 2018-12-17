@@ -9,7 +9,8 @@ class Dropdown extends Component {
       isListOpen: false,
       isInputEmpty: true,
       title: this.props.title,
-      input: ''
+      input: '',
+      countyClick: ''
     }
   }
 
@@ -28,12 +29,16 @@ class Dropdown extends Component {
 
   handleLiClick(e) {
     console.log('Inside of handleLiClick');
+    let countyName = e.target.innerText;
     let classAttr = e.target.getAttribute('class');
     let idAttr = e.target.getAttribute('id');
 
     if(classAttr === 'county') {
-      console.log('Inside of if statement...')
-      console.log(idAttr)
+
+      this.setState({
+        countyClick: countyName
+      })
+
       const element = document.getElementById(idAttr);
       element.scrollIntoView({behavior: "smooth", block: "start"})
     }
@@ -71,7 +76,7 @@ class Dropdown extends Component {
       <div className="outer-wrapper">
         <div className="heading" onClick={this.toggleList}>
           <div className="heading-title">
-            <input type="text" placeholder={title} onChange={this.handleInputChange.bind(this)}/>
+            <input type="search" placeholder={title} value={this.state.countyClick} onChange={this.handleInputChange.bind(this)}/>
           </div>
           { isListOpen ? <i className="fas fa-angle-up"></i> : <i className="fas fa-angle-down"></i> }
         </div>
