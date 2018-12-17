@@ -24,7 +24,19 @@ class Dropdown extends Component {
       input: e.target.value,
       isInputEmpty: false
     })
+  }
 
+  handleLiClick(e) {
+    console.log('Inside of handleLiClick');
+    let classAttr = e.target.getAttribute('class');
+    let idAttr = e.target.getAttribute('id');
+
+    if(classAttr === 'county') {
+      console.log('Inside of if statement...')
+      console.log(idAttr)
+      const element = document.getElementById(idAttr);
+      element.scrollIntoView({behavior: "smooth", block: "start"})
+    }
 
   }
 
@@ -44,7 +56,7 @@ class Dropdown extends Component {
 
     const { list } = this.props;
 
-    const listOfFifteen = getFifteen(list);
+    // const listOfFifteen = getFifteen(list);
 
 
 
@@ -64,7 +76,9 @@ class Dropdown extends Component {
           { isListOpen ? <i className="fas fa-angle-up"></i> : <i className="fas fa-angle-down"></i> }
         </div>
           { isListOpen && <ul>
-            { isInputEmpty === true || this.state.input === '' ? listOfFifteen.map((item, i) => (<li key={i} className={item.level}>{item.name}</li>)) : <li> otherwise we will filter thru all the items </li> }
+            { isInputEmpty === true || this.state.input === '' ?
+                list.map((item, i) => (<li key={i} id={item.id} className={item.level} onClick={this.handleLiClick.bind(this)}>{item.name}</li>)) :
+                <li> otherwise we will filter thru all the items </li> }
             </ul>
           }
       </div>
