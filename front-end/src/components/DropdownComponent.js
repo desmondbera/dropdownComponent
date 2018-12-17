@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getFifteen } from '../util/GetFirstFifteen';
 import { getUserInput } from '../util/GetUserInput';
-let scrollIntoView = require('scroll-into-view');
 
 class Dropdown extends Component {
   constructor(props) {
