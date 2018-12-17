@@ -8,7 +8,71 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 100px;
+}
+
+.wrapper {
+  border: 2px solid black;
+  padding: 20px;
+  width: 500px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading-title {
+  margin-right: 5px;
+}
+
+input {
+  width: 500px;
+}
+
+i {
+  padding-left: 5px;
+  border-left: 1px solid black;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-right: 120px;
+  height: 150px;
+  overflow: auto;
+}
+
+li {
+  list-style: none;
+}
+
+.region {
+  padding-left: 20px;
+}
+
+.state {
+  padding-left: 40px;
+}
+
+.county {
+  padding-left: 60px;
+}
+
+.region:hover, .state:hover {
+  cursor: default;
+}
+
+.county:hover {
+  cursor: pointer;
+  background-color: #E8F1F6;
 }
