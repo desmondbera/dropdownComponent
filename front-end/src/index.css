@@ -19,8 +19,15 @@ body {
 
 .wrapper {
   border: 2px solid black;
-  padding: 20px;
+  padding: 50px;
+}
+
+.outer-wrapper {
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .heading {
@@ -32,6 +39,8 @@ body {
 
 .heading-title {
   margin-right: 5px;
+  margin-left: 38px;
+  display: flex;
 }
 
 input {
