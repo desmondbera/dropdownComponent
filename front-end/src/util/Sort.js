@@ -25,22 +25,15 @@ function getStates(items, currentX) {
 }
 
 function getRegions(items) {
-  console.log('Inside of getRegions function')
-  console.log('items are: ', items)
   for(let x in items[0]) {
-    console.log('inside of getregions for loop')
     if(items[0][x]['parent'] === null) {
       sorted.push(items[0][x])
       getStates(items[0], x)
     }
   }
-  // console.log('Done with getRegions.');
 }
 
 export function createSorter(...args) {
-  console.log('---Inside of function createSorter---')
-  console.log('Our arguments passed to us are: ', args[0])
-  // console.log('--------------')
   getRegions([args[0]])
   return sorted;
 }
